@@ -8,7 +8,6 @@ def process(path_file, instance):
             return
 
     list_text = txt_importer(path_file)
-
     new_dict = {
         "nome_do_arquivo": path_file,
         "qtd_linhas": len(list_text),
@@ -21,6 +20,7 @@ def process(path_file, instance):
 
 def remove(instance):
     if len(instance._data) == 0:
+        print("Não há elementos")
         return
 
     removed_item = instance.dequeue()
