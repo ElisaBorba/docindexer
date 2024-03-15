@@ -1,7 +1,5 @@
 from ting_file_management.queue import Queue
 
-from ting_file_management.file_process import process
-
 
 def exists_word(word, instance=Queue()):
     words_list = []
@@ -25,4 +23,22 @@ def exists_word(word, instance=Queue()):
 
 
 def search_by_word(word, instance):
-    """Aqui irá sua implementação"""
+    word_data = exists_word(word, instance)
+
+    for item in word_data:
+        for index, file_item in enumerate(instance._data):
+            if item["arquivo"] == file_item["nome_do_arquivo"]:
+                ocorrencias = item["ocorrencias"]
+                words_list = []
+                for occurrence in ocorrencias:
+                    line_number = occurrence["linha"]
+                    line_content = file_item["linhas_do_arquivo"][
+                        line_number - 1
+                    ]
+                    words_list.append(
+                        {"linha": line_number, "conteudo": line_content}
+                    )
+                item["ocorrencias"] = words_list
+                break
+
+    return word_data
