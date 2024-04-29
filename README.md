@@ -1,4 +1,4 @@
-# DocIndexer
+# DocIndexer 📑
 O DocIndexer simula um algoritmo de indexação de documentos similar ao do Google. Ele permite identificar ocorrências de termos em arquivos TXT, fornecendo funcionalidades de gerenciamento de arquivos e busca.
 
 ## ⚙️ Funcionalidades
